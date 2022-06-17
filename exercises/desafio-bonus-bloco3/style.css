@@ -120,6 +120,42 @@ h2 {
 
 iframe {
     border-radius: 25px;
-    margin: auto;   
+    margin: auto;
+    margin-bottom: 30px;
+
 }
 
+#experience-section {
+    color: black;
+    background-color: #c7debc;
+    font-size: 25px;
+    /* border: solid red; */
+}
+
+#clients-section {
+    /* border: solid yellow; */
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: auto;
+}
+
+.testimonial {
+    /* border: solid black; */
+    display: inline-block;
+    text-align: center;
+    width: 33.333%;
+    padding: 20px;
+}
+
+.testimonial p {
+    margin: auto;
+    font-size: 20px;
+    width: 70%;
+}
+
+.client-picture {
+    border-radius: 50%;
+    width: 200px;
+    margin-bottom: 20px;
+}
