@@ -159,3 +159,39 @@ iframe {
     width: 200px;
     margin-bottom: 20px;
 }
+
+#gallery {
+    background-color: #878785;
+    color: black;
+}
+
+#gallery-section {
+    display: flex;
+    justify-content: center;
+    /* border: solid black; */
+}
+
+#photos-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    /* border: solid red; */
+    width: 1368px;
+}
+
+#photo {
+    margin: 10px;
+    width: 320px;
+    border: 1px solid #ccc;
+    background-color: rgb(224, 224, 224);
+}
+
+#photo-border {
+    padding: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-picture {
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+}
