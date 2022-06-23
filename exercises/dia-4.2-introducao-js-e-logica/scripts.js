@@ -118,11 +118,11 @@ for (i = 0; i < 25; i += 1) {
 let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
 
 for (let index = 1; index < numbers.length; index += 1) {
-  for (let secondIndex = 0; secondIndex < numbers.length - index; secondIndex += 1) {
+  for (let secondIndex = 0; secondIndex < numbers.length; secondIndex += 1) {
     if (numbers[secondIndex] > numbers[index]) {
-      let aux = numbers[secondIndex];
-      numbers[secondIndex] = numbers[secondIndex + 1];
-      numbers[secondIndex + 1] = aux;
+      let position = numbers[secondIndex];
+      numbers[secondIndex] = numbers[index];
+      numbers[index] = position;
     }
   }
 }
