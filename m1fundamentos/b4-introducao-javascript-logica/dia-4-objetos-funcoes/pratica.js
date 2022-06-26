@@ -331,3 +331,179 @@ let ending = 'dor';
 
 console.log(verifyEnding(word, ending));
 
+// BÔNUS
+// 1 - (Difícil) Faça um programa que receba uma string em algarismos romanos e retorne o número que a string representa.
+// Dicas:
+// Uma string é um array de caracteres, então cada elemento do array é uma letra.
+// O valor de cada numeral romano é:
+// | I   | 1    |
+// | --- | ---- |
+// | IV  | 4    |
+// | V   | 5    |
+// | IX  | 9    |
+// | X   | 10   |
+// | XL  | 40   |
+// | L   | 50   |
+// | XC  | 90   |
+// | C   | 100  |
+// | CD  | 400  |
+// | D   | 500  |
+// | CM  | 900  |
+// | M   | 1000 |
+// Atenção! Quando você tem um número pequeno à direita de um número grande, eles devem ser somados. Exemplo: XI = 10 + 1 = 11. No entanto, se o número pequeno está à esquerda de um número maior que ele, ele deve ser subtraído. Exemplo: IX = 10 - 1 = 9.
+
+
+let romans = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000,
+};  
+
+function inRomans(romanAlgarism) {
+  let result = 0;
+  let lastNumber = 0;
+
+  for (let i = 0; i < romanAlgarism.length; i += 1) {
+    let actualNumber = romanAlgarism[i];
+    
+    for (let chave in romans) {
+      if (actualNumber === chave) {
+        if (lastNumber === 0) {
+          result += romans[chave];
+          lastNumber = romans[chave];
+        } else if (lastNumber < romans[chave]) {
+          result -= lastNumber;
+          result += (romans[chave] - lastNumber);
+          lastNumber = romans[chave];
+        } else if (lastNumber > romans[chave] || lastNumber === romans[chave]) {
+          result += romans[chave];
+          lastNumber = romans[chave];
+        }
+      }
+    }
+  }
+  return result;
+}
+
+let teste = 'CMXLIX';
+console.log(inRomans(teste));
+
+// 2 - Crie uma função chamada arrayOfNumbers que receberá a variável vector como parâmetro. Através de um loop for, percorra essa variável, busque os números pares e os adicione a um novo array que deverá ser retornado ao final pela pela função.
+
+let vector = [[1, 2], [3,4,5,6], [7,8,9,10]];
+
+function arrayOfNumbers(array) {
+  let newArray = [];
+
+  for (let generalIndex = 0; generalIndex < array.length; generalIndex += 1) {
+    for (let innerIndex = 0; innerIndex < array[generalIndex].length; innerIndex += 1) {
+      if (array[generalIndex][innerIndex] % 2 === 0) {
+        newArray.push(array[generalIndex][innerIndex]);
+      }
+    }
+  }
+  return newArray;
+}
+
+console.log(arrayOfNumbers(vector));
+
+//🚀 3 - A partir do array de frutas basket, retorne um objeto que contenha o nome da fruta como chave e a quantidade de vezes que ela aparece no array como valor. Por exemplo, o array ['Melancia', 'Abacate', 'Melancia', 'Melancia', 'Uva'], deverá retornar { Melancia: 3, Abacate: 1, Uva: 1 } quando passado como argumento para a função.
+// Em seguida, imprima esse resultado na tela com uma mensagem no seguinte formato: Sua cesta possui: x Melancias, x Abacates...
+
+const basket = [
+  'Melancia', 'Abacate', 'Melancia', 'Melancia', 'Uva', 'Laranja',
+  'Jaca', 'Pera', 'Melancia', 'Uva', 'Laranja', 'Melancia',
+  'Banana', 'Uva', 'Pera', 'Abacate', 'Laranja', 'Abacate',
+  'Banana', 'Melancia', 'Laranja', 'Laranja', 'Jaca', 'Uva',
+  'Banana', 'Uva', 'Laranja', 'Pera', 'Melancia', 'Uva',
+  'Jaca', 'Banana', 'Pera', 'Abacate', 'Melancia', 'Melancia',
+  'Laranja', 'Pera', 'Banana', 'Jaca', 'Laranja', 'Melancia',
+  'Abacate', 'Abacate', 'Pera', 'Melancia', 'Banana', 'Banana',
+  'Abacate', 'Uva', 'Laranja', 'Banana', 'Abacate', 'Uva',
+  'Uva', 'Abacate', 'Abacate', 'Melancia', 'Uva', 'Jaca',
+  'Uva', 'Banana', 'Abacate', 'Banana', 'Uva', 'Banana',
+  'Laranja', 'Laranja', 'Jaca', 'Jaca', 'Abacate', 'Jaca',
+  'Laranja', 'Melancia', 'Pera', 'Jaca', 'Melancia', 'Uva',
+  'Abacate', 'Jaca', 'Jaca', 'Abacate', 'Uva', 'Laranja',
+  'Pera', 'Melancia', 'Jaca', 'Pera', 'Laranja', 'Jaca',
+  'Pera', 'Melancia', 'Jaca', 'Banana', 'Laranja', 'Jaca',
+  'Banana', 'Pera', 'Abacate', 'Uva',
+];
+
+function contarCesta(array) {
+  let checkedBasket = {};
+
+  for (let i = 0; i < array.length; i += 1) {
+    if (checkedBasket[array[i]] === undefined) {
+      checkedBasket[array[i]] = 1;
+    } else {
+      checkedBasket[array[i]] += 1;
+    }
+    
+  }
+
+  let messageBasket = [];
+
+  for (let item in checkedBasket) {
+    messageBasket.push(' ' + checkedBasket[item] + ' ' + item + 's');
+  }
+
+  console.log('Sua cesta possui: ' + messageBasket);
+};
+
+contarCesta(basket);
+
+// Usando o objeto abaixo, faça os exercícios a seguir:
+
+let moradores = {
+  blocoUm: [
+    {
+      nome: 'Luiza',
+      sobrenome: 'Guimarães',
+      andar: 10,
+      apartamento: 1005,
+    },
+    {
+      nome: 'William',
+      sobrenome: 'Albuquerque',
+      andar: 5,
+      apartamento: 502,
+    },
+  ],
+  blocoDois: [
+    {
+      nome: 'Murilo',
+      sobrenome: 'Ferraz',
+      andar: 8,
+      apartamento: 804,
+    },
+    {
+      nome: 'Zoey',
+      sobrenome: 'Brooks',
+      andar: 1,
+      apartamento: 101,
+    },
+  ],
+};
+
+// 4 - Acesse as chaves nome, sobrenome, andar e apartamento do último morador do blocoDois e faça um console.log no seguinte formato: "O morador do bloco 2 de nome Zoey Brooks mora no 1° andar, apartamento 101".
+
+console.log('O morador do bloco 2 de nome ' + moradores.blocoDois[moradores.blocoDois.length -1].nome + ' ' + moradores.blocoDois[moradores.blocoDois.length -1].sobrenome + ' mora no ' + moradores.blocoDois[moradores.blocoDois.length -1].andar + 'º andar, apartamento ' + moradores.blocoDois[moradores.blocoDois.length -1].apartamento);
+
+// 5 - Utilize o for para imprimir o nome completo de todos os moradores do bloco 1, acessando suas chaves nome e sobrenome, depois faça o mesmo para os moradores do bloco 2.
+
+for (let morador in moradores.blocoUm) {
+  console.log(moradores.blocoUm[morador].nome + ' ' + moradores.blocoUm[morador].sobrenome);
+}
+
+for (let morador in moradores.blocoDois) {
+  console.log(moradores.blocoDois[morador].nome + ' ' + moradores.blocoDois[morador].sobrenome);
+}
+
+// for (let i = 0; i < moradores.blocoUm.length; i += 1) {
+//   console.log(moradores.blocoUm[i].nome + ' ' + moradores.blocoUm[i].sobrenome);
+// }
