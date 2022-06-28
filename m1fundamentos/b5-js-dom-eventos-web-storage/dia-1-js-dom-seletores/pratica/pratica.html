@@ -47,13 +47,54 @@
         - document.getElementById()
         - document.getElementsByClassName()
         - document.getElementsByTagName()
- Crie uma função que mude o texto na tag <p>-----</p> para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício)
+ Crie uma função que mude o texto na tag <p>-----</p> para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício).
  Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
  Crie uma função que mude a cor do quadrado vermelho para branco.
  Crie uma função que corrija o texto da tag <h1>.
  Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
  Crie uma função que exiba o conteúdo de todas as tags <p> no console.
         */
+      function changeFuture() {
+        let futureText = document.getElementsByTagName('p')[1];
+        futureText.innerText = "Daqui a dois anos me vejo trabalhando estavelmente e talvez morando em uma casa diferente da casa dos meus pais."
+        }
+      changeFuture();
+
+      function greenBackground() {
+        let greenTrybe = document.getElementsByClassName("main-content")[0];
+        greenTrybe.style.backgroundColor = "rgb(76,164,109)";
+        }
+      greenBackground();
+
+      function whiteBackground() {
+        let white = document.getElementsByClassName('center-content')[0];
+        white.style.backgroundColor = "white";
+       }
+      whiteBackground();
+
+      function fixText() {
+        let scriptText = document.getElementsByTagName('h1')[0];
+        scriptText.innerText = "Exercício 5.1 - JavaScript";
+      }
+      fixText();
+
+      function paragraphText() {
+        let paragraph = document.getElementsByTagName('p');
+        for (i = 0; i < paragraph.length; i += 1) {
+          paragraph[i].innerText = paragraph[i].innerText.toUpperCase();
+        }
+      }
+      paragraphText();
+
+      function consoleParagraph() {
+        let consoleText = document.getElementsByTagName('p');
+        for (i = 0; i < consoleText.length; i += 1) {
+          console.log(consoleText[i].innerHTML);
+        }
+      }
+      consoleParagraph();
+
+ 
     </script>
   </body>
-</html>
+</html> 

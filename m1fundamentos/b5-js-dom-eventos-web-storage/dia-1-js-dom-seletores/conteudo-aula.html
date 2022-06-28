@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <p id="paragraph" class="paragrafo">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <p id="second-paragraph" class="paragrafo">Segundo parágrafo!</p>
+    </header>
+    <script>
+      const paragraph = document.getElementById("paragraph");
+      paragraph.style.color = "red";
+      document.querySelector("#page-title").innerText = "Neon Genesis Evangelion";
+      document.querySelector("#second-paragraph").innerText = "Assista apenas após a série de TV";
+      document.querySelector("#subtitle").innerText = "The End of Evangelion";
+      document.querySelector(".paragrafo").innerText = "Melhor franquia";
+      let subtitle = document.querySelector("h4");
+      subtitle.style.color = "blue";
+    </script>
+  </body>
+</html>
