@@ -57,8 +57,47 @@
   </head>
   <body>
     <script>
-      // COLOQUE SEU CÓDIGO AQUI
+      // O objetivo desses exercícios é colocar em prática o que você acabou de aprender sobre DOM. Por isso, você deve fazer os exercícios utilizando apenas código JavaScript, o qual deve ser inserido entre as tags script.
+      // 1 - 🚀 Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body;
+
+      let textOne = document.createElement('h1');
+      textOne.innerText = 'Exercício 5.2 - JavaScript DOM';
+
+      let body = document.getElementsByTagName('body');
+      body[0].appendChild(textOne);
+
+      // 2 - 🚀 Adicione a tag main com a classe main-content como filho da tag body;
+
+      let main = document.createElement('main');
+      main.className = 'main-content';
+
+      body[0].appendChild(main);
+
+      // 3 - 🚀 Adicione a tag section com a classe center-content como filho da tag main criada no passo 2;
+
+      let section = document.createElement('section');
+      section.className = 'center-content';
+
+      main.appendChild(section);
+
+      // 4 - 🚀 Adicione a tag p como filho do section criado no passo 3 e coloque algum texto;
+
+      let paragraph = document.createElement('p');
+      paragraph.innerText = 'Algum texto';
+
+      section.appendChild(paragraph);
+
+      // 5 - 🚀 Adicione a tag section com a classe left-content como filho da tag main criada no passo 2;
+
+      let leftSection = document.createElement('section');
+      leftSection.className = 'left-content';
+
+      main.appendChild(leftSection);
+
+      // 6 - 🚀 Adicione a tag section com a classe right-content como filho da tag main criada no passo 2;
+
       
+
     </script>
   </body>
 </html>
