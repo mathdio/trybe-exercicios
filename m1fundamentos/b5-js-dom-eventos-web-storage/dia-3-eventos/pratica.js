@@ -104,42 +104,72 @@ function changeFridaysText(arrayFridays) {
 
   FridayButton.addEventListener('click', function () {
     for (let i = 0; i < fridays.length; i += 1) {
-  
+
       if (fridays[i].innerText !== "Sextou!") {
         fridays[i].innerText = "Sextou!";
       } else {
-        fridays[i].innerText = arrayFridays[i];
+        fridays[i].innerText = innerTextFridays[i];
       }
     }
   });
 }
 
-// let decemberFridays = document.getElementsByClassName('friday');
-
-let decemberFridays = [4, 11, 18, 25];
+let decemberFridays = document.querySelectorAll('.friday');
+let innerTextFridays = [];
+for (let index = 0; index < decemberFridays.length; index += 1) {
+  innerTextFridays.push(decemberFridays[index].innerText);
+};
+// acima é o equivalente a construir o array abaixo manualmente.
+// let decemberFridays = [4, 11, 18, 25];
 changeFridaysText(decemberFridays);
 
 // 🚀 Exercício 6:
 // Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
 // Dica - Propriedade: event.target.
 
-function putZoom() {
+function zoomIn() {
   let days = document.querySelector('#days');
   days.addEventListener('mouseover', function (event) {
     event.target.style.fontSize = '30px';
     event.target.style.fontWeight = '600';
   }); 
 };
-putZoom();
+zoomIn();
 
-function removeZoom() {
+// opção acima adiciona o escutador de evento na tag ul, enquanto na opção abaixo adiciona nas tag li, percorrendo a nodeList.
+
+// function zoomIn() {
+//   let days = document.querySelectorAll('.day');
+//   for (let i = 0; i < days.length; i += 1) {
+//     days[i].addEventListener('mouseover', function (event) {
+//       event.target.style.fontSize = '30px';
+//       event.target.style.fontWeight = '600';
+//     }); 
+//   }
+// };
+// zoomIn();
+
+function zoomOut() {
   let days = document.querySelector('#days');
   days.addEventListener('mouseout', function (event) {
     event.target.style.fontSize = '20px';
     event.target.style.fontWeight = '300';
   });
 };
-removeZoom(); 
+zoomOut();
+
+// opção acima adiciona o escutador de evento na tag ul, enquanto na opção abaixo adiciona nas tag li, percorrendo a nodeList.
+
+// function zoomOut() {
+//   let days = document.querySelectorAll('.day');
+//   for (let i = 0; i < days.length; i += 1) {
+//     days[i].addEventListener('mouseout', function (event) {
+//       event.target.style.fontSize = '20px';
+//       event.target.style.fontWeight = '300';
+//     }); 
+//   }
+// };
+// zoomOut();
 
 // 🚀 Exercício 7:
 // Implemente uma função que adicione uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
