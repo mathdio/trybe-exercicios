@@ -225,17 +225,24 @@ selectTask();
 // Adicione um evento que, ao clicar em um dia do mês no calendário, atribua a esse dia a cor da legenda da sua tarefa selecionada.
 // Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119)
 
-function dayColorTask() {
-  let day = document.getElementsByClassName('.day');
-  let dayColor = day.style.backgroundColor;
-  let selectedTask = document.querySelector('selectedTask')[0];
-  let selectedTaskColor = selectedTask.style.backgroundColor;
+function dayColorTask(selectedTask) {
+  let day = document.querySelectorAll('.day');
 
-  day.addEventListener('click', function () {
-    day.style.backgroundColor = 'green';
-  });
+  for (let i = 0; i < day.length; i += 1) {
+    day[i].addEventListener('click', function (event) {
+      let selectedTask = document.querySelector('.selectedTask');
+      selectedTaskColor = selectedTask.style.backgroundColor;
+
+      if (day[i].style.color !== selectedTaskColor) {
+        day[i].style.color = selectedTaskColor;
+      } else {
+        day[i].style.color = 'rgb(119,119,119)';
+      }
+    });
+  }
 }
 dayColorTask();
+
 
 // 🚀 Bônus:
 // Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
