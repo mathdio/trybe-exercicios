@@ -232,10 +232,15 @@ function dayColorTask(selectedTask) {
     day[i].addEventListener('click', function (event) {
       let selectedTask = document.querySelector('.selectedTask');
       selectedTaskColor = selectedTask.style.backgroundColor;
+      let dayColor = day[i].style.color;
 
-      if (day[i].style.color !== selectedTaskColor) {
+      if (dayColor !== selectedTaskColor) {
+        // dayColor = selectedTaskColor;
+        // código acima não funciona
         day[i].style.color = selectedTaskColor;
       } else {
+        // dayColor = 'rgb(119,119,119)';
+        // código acima não funciona
         day[i].style.color = 'rgb(119,119,119)';
       }
     });
@@ -251,13 +256,38 @@ dayColorTask();
 // Dica - Propriedade: key.
 
 function commitment() {
-  let input = document.getElementById('task-input');
   let commitmentButton = document.getElementById('btn-add');
+  let inputEnter = document.getElementById('task-input');
+
   commitmentButton.addEventListener('click', function () {
-    let inputContainer = document.getElementsByClassName('input-container')[0];
-    let item = document.createElement('li');
-    item.innerText = input;
-    inputContainer.appendChild(item);
+    let input = document.getElementById('task-input');
+    
+    if (input.value === '') {
+      alert('Adicione um compromisso!')
+    } else {
+      let inputContainer = document.querySelector('.input-container');
+      let item = document.createElement('li');
+      item.innerText = input.value;
+      inputContainer.appendChild(item);
+
+      input.value = '';
+    }
+  })
+
+  inputEnter.addEventListener('keypress', function (event) {
+    let input = document.getElementById('task-input');
+
+    if (event.key === 'Enter' && input.value === '') {
+      alert('Adicione um compromisso!');
+    } else if (event.key === 'Enter') {
+      let inputContainer = document.querySelector('.input-container');
+      let item = document.createElement('li');
+      item.innerText = input.value;
+      inputContainer.appendChild(item);
+
+      input.value = '';
+    }
   })
 }
 commitment();
+
