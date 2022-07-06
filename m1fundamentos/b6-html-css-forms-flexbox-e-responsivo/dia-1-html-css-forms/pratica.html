@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrybeTrip</title>
+</head>
+<body>
+  <header></header>
+  <form action="" method="get">
+    <label for="name">
+      Nome Completo:
+      <input type="text" minlength="10" maxlength="40" name="name" id="name" class="validation" autofocus required>
+    </label>
+    <label for="email">
+      E-mail:
+      <input type="email" name="email" id="email" class="validation" required>
+    </label>
+    <br>
+    <br>
+    <fieldset>
+      <legend>Destino Preferido </legend>
+      <label for="cidade">
+        <input type="radio" name="destino" id="cidade" value="cidade">
+        Cidade
+      </label>
+      <label for="campo">
+        <input type="radio" name="destino" id="campo" value="campo">
+        Campo
+      </label>
+      <label for="praia">
+        <input type="radio" name="destino" id="praia" value="praia">
+        Praia
+      </label>
+      <label for="montanhas">
+        <input type="radio" name="destino" id="montanhas" value="montanhas">
+        Montanhas
+      </label>
+    </fieldset>
+    <br>
+    <label for="reason">
+      Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?
+      <br>
+      <textarea name="reason" id="reason" class="validation" cols="63" rows="10" maxlength="500" required></textarea>
+    </label>
+    <br>
+    <label for="date">
+      Escolha a data para realizar sua viagem:
+      <input type="date" name="date" id="date">
+    </label>
+    <br>
+    <br>
+    <label for="newsletter">
+      <input type="checkbox" name="newsletter" id="newsletter">Marque aqui se quiser receber outras incríveis oportunidades oferecidas pela Trybe.
+    </label>
+    <br>
+    <label for="photos">
+      <input type="checkbox" name="photos" id="photos">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
+    </label>
+    <br>
+    <br>
+    <button type="submit" id="submit-button">Enviar inscrição</button>
+  </form>
+
+  <script src="pratica.js"></script>
+</body>
+</html>
