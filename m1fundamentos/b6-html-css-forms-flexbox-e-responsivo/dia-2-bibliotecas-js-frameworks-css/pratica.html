@@ -6,74 +6,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TrybeTrip</title>
   <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
   <script src="jquery-3.6.0.min.js"></script>
   <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
 </head>
-<body>
-  <header></header>
-  <h1>Formulário TrybeTrip</h1>
-  <form action="" method="get">
-    <div class="form-group">
-      <label for="name">
-        Nome Completo:
+<body class="bg-dark">
+  <main class="container">
+    <header class="text-center my-3 bg-light p-2 rounded">
+      <h1 class="display-1">Formulário TrybeTrip</h1>
+    </header>
+    <form action="" method="get" class="bg-light p-2 rounded">
+      <div class="form-group mx-5 my-3">
+        <label for="name" class="form-label">Nome Completo:</label>
         <input class="form-control" type="text" minlength="10" maxlength="40" name="name" id="name" class="validation" autofocus required>
-      </label>
-    </div>
-    <div class="form-group">
-      <label for="email">
-        E-mail:
+      </div>
+      <div class="form-group mx-5 my-3">
+        <label for="email" class="form-label">E-mail:</label>
         <input class="form-control" type="email" name="email" id="email" class="validation" required>
-      </label>
+      </div>
+      <div class="form-group">
+        <fieldset id="destino" class="mx-5 my-3">
+          <label class="form-label" for="destino">Destino Preferido:</label>
+          <div>
+            <div class="form-check-inline">
+              <input class="form-check-input" type="radio" name="destino" id="cidade" value="cidade" required>
+              <label for="cidade" class="form-check-label">Cidade</label>
+            </div>
+            <div class="form-check-inline">
+              <input class="form-check-input" type="radio" name="destino" id="campo" value="campo">
+              <label class="form-check-label" for="campo">Campo</label>
+            </div>
+            <div class="form-check-inline">
+              <input class="form-check-input" type="radio" name="destino" id="praia" value="praia">
+              <label class="form-check-label" for="praia">Praia</label>
+            </div>
+            <div class="form-check-inline">
+              <input class="form-check-input" type="radio" name="destino" id="montanhas" value="montanhas">
+              <label class="form-check-label" for="montanhas">Montanhas</label>
+            </div>
+          </div>
+        </fieldset>   
+      </div>
+      <div class="mx-5 my-3 form-group">
+        <label class="form-label" for="tamanho">Tamanho da camiseta:</label>
+        <select class="form-select" name="tamanho" id="tamanho" required>
+          <option value="XL">GG</option>
+          <option value="L">G</option>
+          <option value="M">M</option>
+          <option value="S">P</option>
+        </select>
+      </div>
+      <div class="form-group mx-5 my-3">
+        <label class="form-label" for="reason">
+          Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</label>
+        <textarea name="reason" id="reason" class="validation form-control" cols="63" rows="10" maxlength="500" required></textarea>
+      </div>
+      <div class="form-group mx-5 my-3">
+        <label class="" for="date">Escolha uma data para viajar:
+          <input class="form-control" type="date" name="date" id="date">
+        </label> 
+      </div>
+      <div class="form-group mx-5 my-1">
+        <input class="form-check-input" type="checkbox" name="newsletter" id="newsletter">
+        <label class="form-check-label" for="newsletter">Marque aqui se quiser receber outras incríveis oportunidades oferecidas pela Trybe.</label>
+      </div>
+      <div class="form-group mx-5 my-1">
+        <input class="form-check-input" type="checkbox" name="photos" id="photos" required>
+        <label class="form-check-label" for="photos">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.</label>
+      </div>
+      <div class="form-group mx-5 my-3">
+        <button type="submit" class="btn btn-outline-dark" id="submit-button">Enviar inscrição</button>
+        <button type="reset" class="btn btn-outline-secondary" id="reset-button">Limpar</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Info</button>
+      </div>
+    </form>
+  </main>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">TrybeTrip</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          O sorteio de viagem da Trybe!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <fieldset>
-        <legend>Destino Preferido </legend>
-        <label for="cidade">
-          <input type="radio" name="destino" id="cidade" value="cidade" required>
-          Cidade
-        </label>
-        <label for="campo">
-          <input type="radio" name="destino" id="campo" value="campo">
-          Campo
-        </label>
-        <label for="praia">
-          <input type="radio" name="destino" id="praia" value="praia">
-          Praia
-        </label>
-        <label for="montanhas">
-          <input type="radio" name="destino" id="montanhas" value="montanhas">
-          Montanhas
-        </label>
-      </fieldset>   
-    </div>
-    <div class="form-group">
-      <label for="reason">
-        Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?
-        <br>
-        <textarea name="reason" id="reason" class="validation" cols="63" rows="10" maxlength="500" required></textarea>
-      </label>
-    </div>
-    <div class="form-group">
-      <label for="date">
-        Escolha a data para realizar sua viagem:
-        <input class="form-control" type="date" name="date" id="date">
-      </label>
-    </div>
-    <div class="form-group">
-      <label for="newsletter">
-        <input type="checkbox" name="newsletter" id="newsletter">Marque aqui se quiser receber outras incríveis oportunidades oferecidas pela Trybe.
-      </label>
-    </div>
-    <div class="form-group">
-      <label for="photos">
-        <input type="checkbox" name="photos" id="photos" required>Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
-      </label>
-    </div>
-    <div class="form-group">
-      <button type="submit" id="submit-button">Enviar inscrição</button>
-    </div>
-  </form>
-
+  </div>
   <script src="pratica.js"></script>
 </body>
 </html>
