@@ -56,7 +56,7 @@ Object.assign(allLessons.lesson1, lesson1);
 Object.assign(allLessons.lesson2, lesson2);
 Object.assign(allLessons.lesson3, lesson3);
 
-// console.log(allLessons);
+console.log(allLessons);
 
 // 6 - Usando o objeto criado no exercício 5, crie uma função que retorne o número total de estudantes em todas as aulas.
 
@@ -73,7 +73,68 @@ studentAmount(allLessons);
 // console.log(getValueByNumber(lesson1, 0));
 // Output: 'Matématica'
 
-function getValueByNumber(lesson, keyIndex) {
-  
+function getValueByNumber(obj, keyIndex) {
+  return Object.values(obj)[keyIndex];
 };
-console.log(getValueByNumber(lesson1, 0));
+console.log(getValueByNumber(lesson2, 0));
+
+// 8 - Crie uma função que verifique se o par (chave / valor) existe na função. Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. Exemplo:
+// console.log(verifyPair(lesson3, 'turno', 'noite'));
+// Output: true,
+// console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
+// Output: false
+
+function verifyPairKeyValue(obj, key, value) {
+  for (let index in obj) {
+    if (index === key) {
+      if (value === obj[index]) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+};
+console.log(verifyPairKeyValue(lesson3, 'turno', 'noite'));
+console.log(verifyPairKeyValue(lesson1, 'materia', 'Matemática'));
+
+// BÔNUS
+// 1 - 🚀 Crie uma função para contar quantos estudantes assistiram às aulas de Matemática. Use o objeto criado no exercício 5.
+
+console.log(allLessons);
+
+function studentsInMathClass(subject) {
+  let amountInClass = 0;
+  for (let index in allLessons) {
+    if (allLessons[index].materia === subject) {
+      amountInClass += allLessons[index].numeroEstudantes;
+    }
+  }
+  return amountInClass;
+};
+console.log(studentsInMathClass('Matemática'));
+
+// 2 - 🚀 Crie uma função que deverá retornar um objeto que representa o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5.
+// console.log(createReport(allLessons, 'Maria Clara'));
+/* {
+  professor: 'Maria Clara',
+  aulas: [ 'Matemática', 'Matemática' ],
+  estudantes: 30
+} */
+
+function createReport(obj, professor) {
+  let report = {
+    professor: professor,
+    aula: [],
+    estudantes: 0,
+  };
+  // let amountInClass = 0;
+  for (let index in obj) {
+    if (obj[index].professor === professor) {
+      report.aula.push(obj[index].materia);
+      report.estudantes += obj[index].numeroEstudantes;
+    }
+  }
+  return report;
+};
+console.log(createReport(allLessons, 'Maria Clara'));
