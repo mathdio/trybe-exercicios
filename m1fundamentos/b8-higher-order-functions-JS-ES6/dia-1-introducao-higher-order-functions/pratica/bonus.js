@@ -107,18 +107,18 @@ const mageDamage = () => {
 // };
 
 const gameActions = {
-  warriorTurn: (warriorDamage) => {
-    warrior.damage = warriorDamage;
+  warriorTurn: (warriorAttack) => {
+    warrior.damage = warriorAttack();
     dragon.healthPoints -= warrior.damage;
   },
 
-  mageTurn: (mageDamage) => {
-    mage.damage = mageDamage;
+  mageTurn: (mageAttack) => {
+    mage.damage = mageAttack();
     dragon.healthPoints -= mage.damage;
   },
 
-  dragonTurn: (dragonDamage) => {
-    dragon.damage = dragonDamage;
+  dragonTurn: (dragonAttack) => {
+    dragon.damage = dragonAttack();
     warrior.healthPoints -= dragon.damage;
     mage.healthPoints -= dragon.damage;
   },
@@ -126,8 +126,8 @@ const gameActions = {
   turnsEnding: () => battleMembers,
 };
 
-gameActions.warriorTurn(warriorDamage());
-gameActions.mageTurn(mageDamage());
-gameActions.dragonTurn(dragonDamage());
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
 // console.log(warrior.damage);
 console.log(gameActions.turnsEnding());
